@@ -4,14 +4,17 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 def analyze_data():
-    data = pd.read_csv('static/housing.csv')
+    data = pd.read_csv('static/Housing.csv')
 
-    data.columns = ['Precio', 'Área', 'Habitaciones', 'Baños', 'Pisos', 'Carretera Principal', 'Cuarto de Huéspedes',
-                    'Sótano', 'Calefacción Agua', 'Aire Acondicionado', 'Estacionamientos', 'Área Preferencial', 'Mobiliario']
+    data.columns = ['Precio', 'Área', 'Habitaciones', 'Baños', 'Pisos',
+                    'Carretera Principal', 'Cuarto de Huéspedes',
+                    'Sótano', 'Calefacción Agua', 'Aire Acondicionado', 
+                    'Estacionamientos', 'Área Preferencial', 'Mobiliario']
 
     summary = data.describe()
 
-    summary.index = ['Conteo', 'Media', 'Desviación Estándar', 'Mínimo', '1er Cuartil (25%)', 'Mediana (50%)', '3er Cuartil (75%)', 'Máximo']
+    summary.index = ['Conteo', 'Media', 'Desviación Estándar',
+                     'Mínimo', '1er Cuartil (25%)', 'Mediana (50%)', '3er Cuartil (75%)', 'Máximo']
 
     summary['Precio'] = summary['Precio'].apply(lambda x: '{:,.0f}'.format(x))
     summary['Área'] = summary['Área'].apply(lambda x: '{:,.0f}'.format(x))
